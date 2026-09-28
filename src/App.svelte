@@ -16,7 +16,7 @@
 	import { projectIssues } from '$lib/validation.js'
 	import ProjectControls from './components/ProjectControls.svelte'
 	import ResultsSummary from './components/ResultsSummary.svelte'
-	import StratumDataTable from './components/StratumDataTable.svelte'
+	import StrataPanel from './components/StrataPanel.svelte'
 
 	function normalizeIds(project) {
 		for (const stratum of project.strata ?? []) {
@@ -115,7 +115,7 @@
 
 		<ProjectControls bind:project />
 
-		<StratumDataTable bind:project {results} />
+		<StrataPanel bind:project {results} />
 
 		<ResultsSummary {results} />
 

@@ -1,0 +1,43 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": { "STRATA": "Dense forest" },
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [[
+					[106.8, -6.9], [106.9, -6.9], [106.9, -6.8], [106.8, -6.8], [106.8, -6.9]
+				]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "STRATA": "Dense forest" },
+			"geometry": {
+				"type": "MultiPolygon",
+				"coordinates": [[[
+					[106.9, -6.9], [107.0, -6.9], [107.0, -6.85], [106.9, -6.85], [106.9, -6.9]
+				]]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "strata": "Agroforestry" },
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [[
+					[107.0, -6.85], [107.05, -6.85], [107.05, -6.8], [107.0, -6.8], [107.0, -6.85]
+				]]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "STRATA": "River" },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [[106.8, -6.95], [107.0, -6.95]]
+			}
+		}
+	]
+}
