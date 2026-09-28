@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { parseStrataCsv } from '../src/lib/csv.js'
+import { resultsToCsv } from '../src/lib/persistence.js'
 
 const GUIDEBOOK = `strata,area,mean_c_stock,variability,variability_value
 Stratum 1,3400,126.8,CV,20.7
@@ -75,5 +76,31 @@ Bad,100,xyz,sd,12.5`)
 			'Row 2: variability_value "" is not a number.',
 			'Row 3: mean_c_stock "xyz" is not a number.'
 		])
+	})
+})
+
+describe('results-export guard', () => {
+	it('rejects the results CSV with a dedicated error', () => {
+		const resultsCsv = resultsToCsv({
+			strata: [],
+			totalArea: 0,
+			weightedMean: null,
+			weightedVariance: null,
+			nRaw: null,
+			totalPlots: 0,
+			totalBackups: 0,
+			totalAllocation: 0
+		})
+		const result = parseStrataCsv(resultsCsv)
+		expect(result.ok).toBe(false)
+		expect(result.errors).toHaveLength(1)
+		expect(result.errors[0]).toContain('results export')
+	})
+
+	it('still accepts a valid strata CSV', () => {
+		const result = parseStrataCsv(
+			'strata,area,mean_c_stock,variability,variability_value\nForest,1000,120,SD,45\n'
+		)
+		expect(result.ok).toBe(true)
 	})
 })

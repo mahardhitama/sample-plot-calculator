@@ -79,6 +79,14 @@ export function parseStrataCsv(text) {
 	if (records.length === 0) return { ok: false, errors: ['The file is empty.'] }
 
 	const header = records[0].map((cell) => cell.trim().toLowerCase())
+	if (header.includes('stratum') || header.includes('total allocation')) {
+		return {
+			ok: false,
+			errors: [
+				'This is a results export, not a strata file. Use Open (JSON) to reload a project, or the five-column strata CSV format.'
+			]
+		}
+	}
 	const errors = []
 	for (const column of REQUIRED_COLUMNS) {
 		if (!header.includes(column)) errors.push(`Missing required column "${column}".`)
