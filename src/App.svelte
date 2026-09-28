@@ -2,6 +2,7 @@
 	import DownloadIcon from '@lucide/svelte/icons/download'
 	import FileUpIcon from '@lucide/svelte/icons/file-up'
 	import RotateCcwIcon from '@lucide/svelte/icons/rotate-ccw'
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right'
 	import { Button } from '$lib/components/ui/button/index.js'
 	import { computeProject } from '$lib/calculator.js'
 	import { createDefaultProject } from '$lib/defaults.js'
@@ -66,11 +67,24 @@
 		<div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4">
 			<div class="flex items-center gap-3">
 				<div class="readout flex size-9 items-center justify-center">
-					<div class="size-2.5 rounded-[1px] bg-primary"></div>
+					<svg viewBox="0 0 24 24" fill="none" class="size-5 text-primary" aria-hidden>
+						<rect x="1.75" y="1.75" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.5" />
+						<rect x="13.75" y="1.75" width="8.5" height="8.5" fill="currentColor" />
+						<rect x="1.75" y="13.75" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.5" />
+						<rect x="13.75" y="13.75" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.5" />
+					</svg>
 				</div>
 				<div>
 					<h1 class="text-base font-bold tracking-[-0.02em]">Sample Plot Calculator</h1>
-					<p class="engraved">CDM A/R tool v2.1.0 · stratified carbon stock estimation</p>
+					<a
+						href="https://cdm.unfccc.int/methodologies/ARmethodologies/tools/ar-am-tool-03-v2.1.0.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="engraved inline-flex items-center gap-1 transition-colors hover:text-foreground hover:underline"
+					>
+						CDM A/R tool v2.1.0 · stratified carbon stock estimation
+						<ArrowUpRightIcon class="size-3 shrink-0" aria-hidden />
+					</a>
 				</div>
 			</div>
 			<div class="flex gap-2">

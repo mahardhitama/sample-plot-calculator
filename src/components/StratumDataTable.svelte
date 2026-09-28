@@ -39,30 +39,54 @@
 		{
 			accessorKey: 'name',
 			header: header('Stratum'),
-			cell: (info) => renderComponent(TextCell, { stratum: info.row.original, field: 'name' })
+			cell: (info) =>
+				renderComponent(TextCell, {
+					stratum: info.row.original,
+					field: 'name',
+					onCommit: (value) => (info.row.original.name = value)
+				})
 		},
 		{
 			accessorKey: 'area',
+			numeric: true,
 			header: header('Area (ha)'),
-			cell: (info) => renderComponent(NumberCell, { stratum: info.row.original, field: 'area' })
+			cell: (info) =>
+				renderComponent(NumberCell, {
+					stratum: info.row.original,
+					field: 'area',
+					onCommit: (value) => (info.row.original.area = value)
+				})
 		},
 		{
 			accessorKey: 'mean',
+			numeric: true,
 			header: header('Mean (t C/ha)'),
-			cell: (info) => renderComponent(NumberCell, { stratum: info.row.original, field: 'mean' })
+			cell: (info) =>
+				renderComponent(NumberCell, {
+					stratum: info.row.original,
+					field: 'mean',
+					onCommit: (value) => (info.row.original.mean = value)
+				})
 		},
 		{
 			id: 'variability-input',
 			accessorKey: 'varianceInput.value',
+			numeric: true,
 			header: header('Variability'),
-			cell: (info) => renderComponent(VarianceCell, { stratum: info.row.original })
+			cell: (info) =>
+				renderComponent(VarianceCell, {
+					stratum: info.row.original,
+					onValueChange: (value) => (info.row.original.varianceInput.value = value),
+					onModeChange: (mode) => (info.row.original.varianceInput.mode = mode)
+				})
 		},
-		{ accessorKey: 'sd', header: header('SD'), cell: computedCell('sd') },
-		{ accessorKey: 'cv', header: header('CV (%)'), cell: computedCell('cv') },
-		{ accessorKey: 'weight', header: header('Weight'), cell: computedCell('weight', 4) },
+		{ accessorKey: 'sd', numeric: true, header: header('SD'), cell: computedCell('sd') },
+		{ accessorKey: 'cv', numeric: true, header: header('CV (%)'), cell: computedCell('cv') },
+		{ accessorKey: 'weight', numeric: true, header: header('Weight'), cell: computedCell('weight', 4) },
 		{
 			id: 'allocation',
 			accessorKey: 'ni',
+			numeric: true,
 			header: header('Neyman allocation'),
 			cell: (info) => {
 				const row = computedById.get(info.row.original.id)
@@ -72,6 +96,7 @@
 		{
 			id: 'total-allocation',
 			accessorKey: 'totalAllocation',
+			numeric: true,
 			header: header('Total allocation'),
 			cell: (info) => {
 				const row = computedById.get(info.row.original.id)
@@ -115,7 +140,7 @@
 				name: `Stratum ${project.strata.length + 1}`,
 				area: null,
 				mean: null,
-				varianceInput: { mode: 'cv', value: null }
+				varianceInput: { mode: 'sd', value: null }
 			}
 		]
 	}
@@ -133,7 +158,7 @@
 				{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
 					<TableRow>
 						{#each headerGroup.headers as header (header.id)}
-							<TableHead>
+							<TableHead class={header.column.columnDef.numeric ? 'text-right' : ''}>
 								{#if !header.isPlaceholder}
 									<FlexRender {header} />
 								{/if}
@@ -147,7 +172,11 @@
 					{@const computed = computedById.get(row.original.id)}
 					<TableRow class={computed?.excluded ? 'excluded-rule opacity-85' : ''}>
 						{#each row.getAllCells() as cell (cell.id)}
-							<TableCell class="font-mono text-sm tabular-nums [&_input]:font-mono">
+							<TableCell
+								class={`font-mono text-sm tabular-nums [&_input]:font-mono${
+									cell.column.columnDef.numeric ? ' text-right' : ''
+								}`}
+							>
 								<FlexRender {cell} />
 							</TableCell>
 						{/each}
@@ -163,10 +192,10 @@
 			<TableFooter>
 				<TableRow class="sum-rule font-mono hover:bg-transparent">
 					<TableCell class="engraved pt-3">Total</TableCell>
-					<TableCell class="pt-3">{fmt(results.totalArea, 0)}</TableCell>
+					<TableCell class="pt-3 text-right">{fmt(results.totalArea, 0)}</TableCell>
 					<TableCell colspan={5} class="pt-3"></TableCell>
-					<TableCell class="pt-3 text-sm font-bold">{results.method ? fmt(results.nRaw) : '—'}</TableCell>
-					<TableCell class="pt-3 text-sm font-bold">{results.method ? fmt(results.totalAllocation, 0) : '—'}</TableCell>
+					<TableCell class="pt-3 text-right text-sm font-bold">{results.method ? fmt(results.nRaw) : '—'}</TableCell>
+					<TableCell class="pt-3 text-right text-sm font-bold">{results.method ? fmt(results.totalAllocation, 0) : '—'}</TableCell>
 					<TableCell class="pt-3"></TableCell>
 				</TableRow>
 			</TableFooter>

@@ -1,7 +1,7 @@
 <script>
 	import { Input } from '$lib/components/ui/input/index.js'
 
-	let { stratum = $bindable(), field } = $props()
+	let { stratum, field, onCommit } = $props()
 
 	let focused = $state(false)
 	let text = $state('')
@@ -12,7 +12,7 @@
 
 	function oninput(event) {
 		text = event.currentTarget.value
-		stratum[field] = text
+		onCommit(text)
 	}
 </script>
 

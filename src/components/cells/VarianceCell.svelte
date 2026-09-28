@@ -2,7 +2,7 @@
 	import { Input } from '$lib/components/ui/input/index.js'
 	import { Switch } from '$lib/components/ui/switch/index.js'
 
-	let { stratum = $bindable() } = $props()
+	let { stratum, onValueChange, onModeChange } = $props()
 
 	let focused = $state(false)
 	let text = $state(String(stratum.varianceInput?.value ?? ''))
@@ -13,13 +13,13 @@
 
 	function oninput(event) {
 		text = event.currentTarget.value
-		stratum.varianceInput.value = text === '' ? null : Number(text)
+		onValueChange(text === '' ? null : Number(text))
 	}
 
-	let mode = $state(stratum.varianceInput?.mode ?? 'cv')
+	let mode = $state(stratum.varianceInput?.mode ?? 'sd')
 
 	$effect(() => {
-		stratum.varianceInput.mode = mode
+		onModeChange(mode)
 	})
 
 	$effect(() => {

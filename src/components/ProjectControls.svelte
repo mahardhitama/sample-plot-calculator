@@ -31,7 +31,7 @@
 			<NumericField id="precision" label="Precision (%)" bind:value={project.precisionLevel} scale={100} />
 			<div class="flex flex-col gap-1.5">
 				<label for="confidence" class="engraved">Confidence level</label>
-				<NativeSelect id="confidence" value={project.confidenceLevel} onchange={onConfidenceChange} class="h-9">
+				<NativeSelect id="confidence" value={project.confidenceLevel} onchange={onConfidenceChange} class="h-9 w-full">
 					{#each CONFIDENCE_PRESETS as preset (preset.value)}
 						<NativeSelectOption value={preset.value}>{preset.label}</NativeSelectOption>
 					{/each}
