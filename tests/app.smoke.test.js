@@ -14,6 +14,13 @@ describe('App smoke test (server-rendered)', () => {
 		expect(body).toContain('>13<')
 	})
 
+	it('renders the strata source tabs', () => {
+		const { body } = render(App)
+		expect(body).toContain('Manual inputs')
+		expect(body).toContain('From CSV')
+		expect(body).toContain('From land cover')
+	})
+
 	it('renders the results summary stats', () => {
 		const { body } = render(App)
 		expect(body).toContain('Area A, ha')
