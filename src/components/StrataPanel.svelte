@@ -1,7 +1,7 @@
 <script>
-	import * as Card from '$lib/components/ui/card/index.js'
 	import * as ToggleGroup from '$lib/components/ui/toggle-group/index.js'
 	import CsvImportTab from './CsvImportTab.svelte'
+	import LandCoverTab from './LandCoverTab.svelte'
 	import StratumDataTable from './StratumDataTable.svelte'
 
 	let { project = $bindable(), results } = $props()
@@ -16,14 +16,13 @@
 		<ToggleGroup.Item value="landcover" class="engraved">From land cover</ToggleGroup.Item>
 	</ToggleGroup.Root>
 
-	{#if source === 'manual'}
+	<div class:hidden={source !== 'manual'}>
 		<StratumDataTable bind:project {results} />
-	{:else if source === 'csv'}
+	</div>
+	<div class:hidden={source !== 'csv'}>
 		<CsvImportTab bind:project />
-	{:else}
-		<Card.Root class="plate flex flex-col items-center gap-2 py-16">
-			<span class="engraved">Land cover import</span>
-			<Card.Description>Coming soon — derive strata from a land cover / GIS classification.</Card.Description>
-		</Card.Root>
-	{/if}
+	</div>
+	<div class:hidden={source !== 'landcover'}>
+		<LandCoverTab bind:project />
+	</div>
 </div>

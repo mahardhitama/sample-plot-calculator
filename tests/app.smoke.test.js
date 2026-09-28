@@ -19,6 +19,7 @@ describe('App smoke test (server-rendered)', () => {
 		expect(body).toContain('Manual inputs')
 		expect(body).toContain('From CSV')
 		expect(body).toContain('From land cover')
+		expect(body).toContain('Sign in with Google')
 	})
 
 	it('renders the results summary stats', () => {
