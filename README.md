@@ -40,6 +40,10 @@ npx vercel --prod  # from the project root, linked via `npx vercel link`
 - Optional backup plots: a percentage added on top of each stratum's
   allocation, with a combined "total allocation" per stratum
 - Autosave to localStorage, JSON project export/import, CSV results export
+- "From land cover" tab: derive strata from a GeoJSON with a STRATA property —
+  UTM-zone area calculation, then per-user Google-authenticated Earth Engine
+  zonal statistics against CTrees Global AGB 100 m (latest year) for mean and
+  SD (t C/ha)
 - Reference documents in `docs/sources/` (original Excel tool, methodology
   tool text) — see `docs/sources/README.md` for URLs and availability notes
 
