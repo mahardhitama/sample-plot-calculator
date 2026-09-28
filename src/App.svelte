@@ -63,7 +63,7 @@
 
 <div class="min-h-screen">
 	<header class="border-b">
-		<div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4">
+		<div class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4">
 			<div class="flex items-center gap-3">
 				<div class="flex size-9 items-center justify-center rounded-md bg-primary/10 text-primary">
 					<svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden>
@@ -109,7 +109,7 @@
 
 	<input bind:this={fileInput} type="file" accept=".json,application/json" class="hidden" onchange={onImportFile} />
 
-	<main class="mx-auto max-w-7xl space-y-6 px-6 py-6">
+	<main class="mx-auto max-w-[1440px] space-y-6 px-6 py-6">
 		{#if importError || issues.length > 0}
 			<div class="flex flex-col gap-2 rounded-lg border border-destructive/50 bg-card p-4" role="alert">
 				<span class="text-xs font-semibold uppercase tracking-wider text-destructive">Check</span>
