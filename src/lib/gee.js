@@ -52,6 +52,8 @@ function requestToken(prompt) {
 			}
 			accessToken = response.access_token
 			tokenExpiresAt = Date.now() + (response.expires_in ?? 3600) * 1000
+			// A new token means the EE client must re-initialize before use.
+			initPromise = null
 			scheduleSilentRefresh()
 			resolve(accessToken)
 		}
@@ -69,8 +71,6 @@ function scheduleSilentRefresh() {
 	setTimeout(async () => {
 		try {
 			await requestToken('')
-			// Force the EE client to re-initialize with the fresh token.
-			initPromise = null
 		} catch {
 			accessToken = null
 			authLostHandler?.()
@@ -80,6 +80,9 @@ function scheduleSilentRefresh() {
 
 /** Interactive sign-in. Rejects with a human-readable message on denial/close. */
 export function signIn(onAuthLost) {
+	if (GEE_OAUTH_CLIENT_ID.startsWith('YOUR_CLIENT_ID')) {
+		return Promise.reject(new Error('Earth Engine sign-in is not configured for this deployment (missing OAuth client ID).'))
+	}
 	authLostHandler = onAuthLost
 	return requestToken(undefined)
 }

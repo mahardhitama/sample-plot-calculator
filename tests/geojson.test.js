@@ -66,4 +66,9 @@ describe('parseLandCoverGeoJson', () => {
 		const result = parseLandCoverGeoJson('{"type":"Point","coordinates":[0,0]}')
 		expect(result.ok).toBe(false)
 	})
+
+	it('rejects a non-array features member', () => {
+		const result = parseLandCoverGeoJson('{"type":"FeatureCollection","features":{}}')
+		expect(result.ok).toBe(false)
+	})
 })

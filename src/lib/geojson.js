@@ -35,6 +35,9 @@ export function parseLandCoverGeoJson(text) {
 
 	const features = []
 	if (root?.type === 'FeatureCollection') {
+		if (root.features != null && !Array.isArray(root.features)) {
+			return { ok: false, errors: ['Expected a GeoJSON FeatureCollection or Feature.'], warnings: [] }
+		}
 		features.push(...(root.features ?? []))
 	} else if (root?.type === 'Feature') {
 		features.push(root)
