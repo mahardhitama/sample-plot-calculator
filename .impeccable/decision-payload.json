@@ -1,0 +1,125 @@
+{
+  "title": "Choose the visual world",
+  "question": "The roll assigned The Survey Instrument. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Survey Instrument",
+      "kicker": "THE ROLL",
+      "lineage": "surveyor's total station readouts and calibration bench panels",
+      "thesis": "The calculator presented as a calibrated field instrument: one bench, engraved labels, inset LCD readouts, numerals that lock to a grid — precision you can audit at a glance, not another spreadsheet.",
+      "palette": ["#F7F6F2", "#20261F", "#235338", "#B45309"],
+      "materials": ["engraved instrument panel", "inset LCD readout windows", "calibration labels"],
+      "viewport": "A warm light bench: instrument-bezel top bar with the project name as an ID plate; a settings plate for precision/confidence/plot size; the strata ledger as the dominant readout table in tabular mono; headline results (n total, per-stratum plots) as inset LCD windows with exact-length allocation bars.",
+      "risk": "Restraint is the risk: if the panel language is applied timidly it collapses into generic gray UI, so the commitment to instrument chrome (ID plates, readout insets, engraved tracked labels) must be total.",
+      "raised": [
+        { "from": "challenger-emission-rail", "raise": "Row and field state is carried in line form — weight, dash, strike — never in hue alone." },
+        { "from": "challenger-labanotation", "raise": "Allocation bars are drawn to exact proportion: the bar's length IS the plot count." },
+        { "from": "challenger-gravity-rain", "raise": "On recompute, every number settles into place once — values land, they never flicker." },
+        { "from": "challenger-cyclorama", "raise": "Document state is a named phase (Draft / Valid / Excluded), labeled in words, color only secondary." },
+        { "from": "challenger-tdr", "raise": "Registration discipline: every numeral locks to a shared column grid, tight to the edge, nothing floats." },
+        { "from": "challenger-phosphor", "raise": "The headline n reads as a live instrument readout, set apart from the furniture." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "The Field Tally Book",
+      "kicker": "IMPECCABLE'S PICK",
+      "lineage": "waterproof surveyor's tally notebooks and plot data sheets",
+      "thesis": "The calculation as a page in the surveyor's waterproof book: gridded paper, pencil-entry columns, hand-ruled totals — the artifact this tool replaces, honored as an interface.",
+      "palette": ["#F4F1E8", "#2B2B26", "#3E5C46", "#8A8266"],
+      "materials": ["gridded field paper", "pencil graphite", "spiral binding"],
+      "viewport": "A notebook spread: strata as ruled data rows in mono pencil, the running total as a hand-ruled sum line, results boxed in the margin like a field check.",
+      "risk": "Notebook metaphors are familiar territory — the most grounded and safest direction on the table, and the direction most runs in this category land on."
+    },
+    {
+      "id": "challenger-emission-rail",
+      "label": "Emission-Line Rail",
+      "verdict": "competitive",
+      "lineage": "glass spectrograms on a charcoal continuum",
+      "thesis": "Every element hangs off one off-centre calibrated rail; color exists only as hairline emission lines; state is line height, dash, and doubling.",
+      "palette": ["#17181A", "#D8D5CC", "#E3B341", "#4A7FB5"],
+      "materials": ["charcoal continuum", "hairline emission lines", "bone legends"],
+      "viewport": "One rail across the page; the open stratum blooms into a plate, the rest are hairline stubs.",
+      "case": "Fuses well — carbon labs live in spectrometry — but the rail topology fights dense per-stratum table scanning, the calculator's core task.",
+      "risk": "Spectacle over scanability; a table this dense cannot hang off one rail.",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-emission-line-rail-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/operate-c-emission-line-rail.webp"
+    },
+    {
+      "id": "challenger-labanotation",
+      "label": "Labanotation Score",
+      "verdict": "competitive",
+      "lineage": "dance notation scores where symbol length is exact duration",
+      "thesis": "A score where every mark's length is its exact quantity and shading is its level — notation where the geometry is the data.",
+      "palette": ["#FDFDFB", "#141414", "#9C9C94"],
+      "materials": ["score paper", "solid and hatched symbol blocks"],
+      "viewport": "A ruled score: strata as columns of blocks whose lengths are their plot counts, the beat band marking the active estimate.",
+      "case": "Length-is-quantity is exactly what allocation needs; loses narrowly on audience identification — MRV professionals read ledgers, not dance scores.",
+      "risk": "Alien notation for a conservative audience; the grammar must be learned before it can be trusted.",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-labanotation-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/notation-diagram-systems-labanotation.webp"
+    },
+    {
+      "id": "challenger-phosphor",
+      "label": "Phosphor Terminal",
+      "verdict": "declined",
+      "lineage": "green-phosphor terminals in midnight machine rooms",
+      "palette": ["#0A0F0A", "#33FF66", "#1D6B34"],
+      "materials": ["curved glass", "phosphor bloom", "scanlines"],
+      "case": "Fuses poorly: glowing dark glass is unreadable for all-day tabular audit work beside Excel, and the audience identifies with instruments, not terminals.",
+      "kept": "The live readout register: the headline n is set apart as an instrument reading.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-phosphor-terminal-midnight-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-phosphor-terminal-midnight.webp"
+    },
+    {
+      "id": "challenger-gravity-rain",
+      "label": "Gravity-Rain Garden",
+      "verdict": "declined",
+      "lineage": "surreal gardens where rain falls in colored gravities",
+      "palette": ["#3E4A42", "#7FB3D5", "#C4524A", "#191414"],
+      "materials": ["dusk garden", "orbiting raindrops", "cloud color-coding"],
+      "case": "Fuses poorly: surreal play has no identification with MRV professionals and buries the numbers it should serve.",
+      "kept": "Deterministic settling: computed values land once, in place, like drops finding their level.",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-gravity-rain-garden-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-gravity-rain-garden.webp"
+    },
+    {
+      "id": "challenger-cyclorama",
+      "label": "Cyclorama Dawn",
+      "verdict": "declined",
+      "lineage": "theater cycloramas passing from black night through cobalt and rose into day",
+      "palette": ["#0B0B10", "#2B4C9B", "#C98A8A", "#F5F2EC"],
+      "materials": ["curved cyc wall", "horizon light bands", "lighting-plot stencils"],
+      "case": "Fuses poorly: atmosphere is expression the task does not need, and light-band navigation hides the ledger.",
+      "kept": "Named phases: document state (Draft / Valid / Excluded) is a labeled phase, never color alone.",
+      "hero": "https://impeccable.style/worlds/cards/stagecraft-theater-lighting-cyclorama-dawn-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/stagecraft-theater-lighting-cyclorama-dawn.webp"
+    },
+    {
+      "id": "challenger-tdr",
+      "label": "TDR Info-Noise Sleeve",
+      "verdict": "declined",
+      "lineage": "Designers Republic hostile-brand sleeve noise",
+      "palette": ["#000000", "#E3008C", "#FF6A00", "#FFFFFF"],
+      "materials": ["roundels", "hazard sans", "registration marks"],
+      "case": "Fuses poorly: information noise is the exact opposite of the auditability this product sells.",
+      "kept": "Registration discipline: every numeral locks tight to a shared column grid.",
+      "hero": "https://impeccable.style/worlds/cards/tdr-info-noise-sleeve-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/tdr-info-noise-sleeve.webp"
+    }
+  ],
+  "reroll": {
+    "registers": ["safer", "bolder"]
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The clean shadcn tool UI this category always ships — neutral chrome, blue accent, tidy card grid — executed at full craft.",
+    "palette": ["#FFFFFF", "#0A0A0A", "#2563EB"],
+    "materials": ["clean grid", "neutral cards", "default tokens"],
+    "viewport": "The arrangement a visitor expects from a calculator tool, polished to the last pixel.",
+    "risk": "Indistinguishable from a thousand other internal tools — which is precisely why the incumbent was called ugly."
+  },
+  "steer": true
+}

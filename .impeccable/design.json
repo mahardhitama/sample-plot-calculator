@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T00:00:00+07:00",
+  "title": "Design System: Sample Plot Calculator",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Bench Ground",
+        "canonical": "#f7f6f2",
+        "tonalRamp": ["oklch(15% 0.005 95.1)", "oklch(26% 0.005 95.1)", "oklch(37% 0.005 95.1)", "oklch(48% 0.005 95.1)", "oklch(60% 0.005 95.1)", "oklch(71% 0.005 95.1)", "oklch(83% 0.005 95.1)", "oklch(95% 0.005 95.1)"]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#20261f",
+        "tonalRamp": ["oklch(15% 0.015 141.1)", "oklch(26% 0.015 141.1)", "oklch(37% 0.015 141.1)", "oklch(48% 0.015 141.1)", "oklch(60% 0.015 141.1)", "oklch(71% 0.015 141.1)", "oklch(83% 0.015 141.1)", "oklch(95% 0.015 141.1)"]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Bench Ground (plate fill)",
+        "canonical": "#f7f6f2",
+        "tonalRamp": ["oklch(15% 0.005 95.1)", "oklch(26% 0.005 95.1)", "oklch(37% 0.005 95.1)", "oklch(48% 0.005 95.1)", "oklch(60% 0.005 95.1)", "oklch(71% 0.005 95.1)", "oklch(83% 0.005 95.1)", "oklch(95% 0.005 95.1)"]
+      },
+      "popover": {
+        "role": "neutral",
+        "displayName": "Plate Surface",
+        "canonical": "#fcfbf8",
+        "tonalRamp": ["oklch(15% 0.004 91.4)", "oklch(26% 0.004 91.4)", "oklch(37% 0.004 91.4)", "oklch(48% 0.004 91.4)", "oklch(60% 0.004 91.4)", "oklch(71% 0.004 91.4)", "oklch(83% 0.004 91.4)", "oklch(95% 0.004 91.4)"]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Spruce",
+        "canonical": "#235338",
+        "tonalRamp": ["oklch(15% 0.070 156.5)", "oklch(26% 0.070 156.5)", "oklch(37% 0.070 156.5)", "oklch(48% 0.070 156.5)", "oklch(60% 0.070 156.5)", "oklch(71% 0.070 156.5)", "oklch(83% 0.070 156.5)", "oklch(95% 0.070 156.5)"]
+      },
+      "primary-foreground": {
+        "role": "primary",
+        "displayName": "Paper on Spruce",
+        "canonical": "#f5f4ee",
+        "tonalRamp": ["oklch(15% 0.008 98.9)", "oklch(26% 0.008 98.9)", "oklch(37% 0.008 98.9)", "oklch(48% 0.008 98.9)", "oklch(60% 0.008 98.9)", "oklch(71% 0.008 98.9)", "oklch(83% 0.008 98.9)", "oklch(95% 0.008 98.9)"]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Instrument Wash",
+        "canonical": "#ebe9df",
+        "tonalRamp": ["oklch(15% 0.014 97.4)", "oklch(26% 0.014 97.4)", "oklch(37% 0.014 97.4)", "oklch(48% 0.014 97.4)", "oklch(60% 0.014 97.4)", "oklch(71% 0.014 97.4)", "oklch(83% 0.014 97.4)", "oklch(95% 0.014 97.4)"]
+      },
+      "secondary-foreground": {
+        "role": "secondary",
+        "displayName": "Ink",
+        "canonical": "#20261f",
+        "tonalRamp": ["oklch(15% 0.015 141.1)", "oklch(26% 0.015 141.1)", "oklch(37% 0.015 141.1)", "oklch(48% 0.015 141.1)", "oklch(60% 0.015 141.1)", "oklch(71% 0.015 141.1)", "oklch(83% 0.015 141.1)", "oklch(95% 0.015 141.1)"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Bench Wash",
+        "canonical": "#edece5",
+        "tonalRamp": ["oklch(15% 0.013 100)", "oklch(26% 0.013 100)", "oklch(37% 0.013 100)", "oklch(48% 0.013 100)", "oklch(60% 0.013 100)", "oklch(71% 0.013 100)", "oklch(83% 0.013 100)", "oklch(95% 0.013 100)"]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Engraving Tint",
+        "canonical": "#5f6659",
+        "tonalRamp": ["oklch(15% 0.022 130.4)", "oklch(26% 0.022 130.4)", "oklch(37% 0.022 130.4)", "oklch(48% 0.022 130.4)", "oklch(60% 0.022 130.4)", "oklch(71% 0.022 130.4)", "oklch(83% 0.022 130.4)", "oklch(95% 0.022 130.4)"]
+      },
+      "accent": {
+        "role": "tertiary",
+        "displayName": "Spruce Wash",
+        "canonical": "#e3e9e3",
+        "tonalRamp": ["oklch(15% 0.010 145.5)", "oklch(26% 0.010 145.5)", "oklch(37% 0.010 145.5)", "oklch(48% 0.010 145.5)", "oklch(60% 0.010 145.5)", "oklch(71% 0.010 145.5)", "oklch(83% 0.010 145.5)", "oklch(95% 0.010 145.5)"]
+      },
+      "accent-foreground": {
+        "role": "tertiary",
+        "displayName": "Deep Spruce",
+        "canonical": "#1b422c",
+        "tonalRamp": ["oklch(15% 0.059 156.6)", "oklch(26% 0.059 156.6)", "oklch(37% 0.059 156.6)", "oklch(48% 0.059 156.6)", "oklch(60% 0.059 156.6)", "oklch(71% 0.059 156.6)", "oklch(83% 0.059 156.6)", "oklch(95% 0.059 156.6)"]
+      },
+      "destructive": {
+        "role": "destructive",
+        "displayName": "Flag Amber",
+        "canonical": "#b45309",
+        "tonalRamp": ["oklch(15% 0.146 49.0)", "oklch(26% 0.146 49.0)", "oklch(37% 0.146 49.0)", "oklch(48% 0.146 49.0)", "oklch(60% 0.146 49.0)", "oklch(71% 0.146 49.0)", "oklch(83% 0.146 49.0)", "oklch(95% 0.146 49.0)"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#d9d7cb",
+        "tonalRamp": ["oklch(15% 0.016 99.0)", "oklch(26% 0.016 99.0)", "oklch(37% 0.016 99.0)", "oklch(48% 0.016 99.0)", "oklch(60% 0.016 99.0)", "oklch(71% 0.016 99.0)", "oklch(83% 0.016 99.0)", "oklch(95% 0.016 99.0)"]
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Hairline Deep",
+        "canonical": "#cfcbbd",
+        "tonalRamp": ["oklch(15% 0.020 93.7)", "oklch(26% 0.020 93.7)", "oklch(37% 0.020 93.7)", "oklch(48% 0.020 93.7)", "oklch(60% 0.020 93.7)", "oklch(71% 0.020 93.7)", "oklch(83% 0.020 93.7)", "oklch(95% 0.020 93.7)"]
+      },
+      "ring": {
+        "role": "primary",
+        "displayName": "Spruce (focus ring)",
+        "canonical": "#235338",
+        "tonalRamp": ["oklch(15% 0.070 156.5)", "oklch(26% 0.070 156.5)", "oklch(37% 0.070 156.5)", "oklch(48% 0.070 156.5)", "oklch(60% 0.070 156.5)", "oklch(71% 0.070 156.5)", "oklch(83% 0.070 156.5)", "oklch(95% 0.070 156.5)"]
+      },
+      "bench": {
+        "role": "neutral",
+        "displayName": "Recessed Well",
+        "canonical": "#efede4",
+        "tonalRamp": ["oklch(15% 0.012 96.4)", "oklch(26% 0.012 96.4)", "oklch(37% 0.012 96.4)", "oklch(48% 0.012 96.4)", "oklch(60% 0.012 96.4)", "oklch(71% 0.012 96.4)", "oklch(83% 0.012 96.4)", "oklch(95% 0.012 96.4)"]
+      },
+      "readout": {
+        "role": "neutral",
+        "displayName": "LCD Window",
+        "canonical": "#f1efe7",
+        "tonalRamp": ["oklch(15% 0.011 95.2)", "oklch(26% 0.011 95.2)", "oklch(37% 0.011 95.2)", "oklch(48% 0.011 95.2)", "oklch(60% 0.011 95.2)", "oklch(71% 0.011 95.2)", "oklch(83% 0.011 95.2)", "oklch(95% 0.011 95.2)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "ID Plate Title",
+        "purpose": "Product name on the bezel ID plate only — 16px bold Grotesk with −0.02em tracking, like a stamped model number."
+      },
+      "headline": {
+        "displayName": "Headline Total",
+        "purpose": "Space Mono 36px bold tabular-nums for the total-n LCD readout and post-round-up total. The loudest glyphs on the bench."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "14px Space Grotesk for descriptions, alerts, and column descriptions."
+      },
+      "label": {
+        "displayName": "Engraved Label",
+        "purpose": "10px uppercase Grotesk, 0.14em tracking, weight 500, ink tint — every field label, section title, and phase tag."
+      }
+    },
+    "shadows": [
+      {
+        "name": "readout-bezel",
+        "value": "inset 0 1px 2px oklch(0.2 0.02 150 / 8%), inset 0 0 0 1px oklch(1 0 0 / 55%)",
+        "purpose": "Inner lip of every LCD readout window and readout-style input."
+      },
+      {
+        "name": "alloc-track-well",
+        "value": "inset 0 1px 2px oklch(0.2 0.02 150 / 10%)",
+        "purpose": "Recessed channel behind the Neyman allocation bar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-instrument",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for bar/width transitions (260ms)."
+      },
+      {
+        "name": "readout-settle",
+        "value": "260ms ease-out-expo (1 - 2^(-10k))",
+        "purpose": "Numeric readout values settle once into place on recompute (gravity-rain); they never flicker."
+      }
+    ],
+    "breakpoints": [
+      { "name": "lg", "value": "1024px" }
+    ],
+    "notes": "A complete .dark token set exists in src/app.css (ground #171a16, ink #e8e9e2, spruce #7fb08e, amber #d99a4e) but is token-only: light is the shipping default and no surface is designed against the dark set."
+  },
+  "components": [
+    {
+      "name": "Outline Panel Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Bezel file actions (Save / Open / Export CSV): hairline-bordered panel button, 32px tall, hover lifts to spruce.",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"/></svg>Export CSV</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius-md); background: transparent; color: var(--foreground); font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 14px; cursor: pointer; transition: color 0.2s, border-color 0.2s; } .ds-btn-outline:hover { color: var(--primary); border-color: var(--primary); } .ds-btn-outline:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; } .ds-icon { width: 14px; height: 14px; }"
+    },
+    {
+      "name": "Ghost Panel Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Low-emphasis bezel action (Reset): no border, muted text, hover lifts to spruce.",
+      "html": "<button class=\"ds-btn-ghost\" type=\"button\">Reset</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: none; border-radius: var(--radius-md); background: transparent; color: var(--muted-foreground); font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 14px; cursor: pointer; transition: color 0.2s; } .ds-btn-ghost:hover { color: var(--primary); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Row Remove Button",
+      "kind": "button",
+      "refersTo": "button-icon-ghost",
+      "description": "28px ghost icon button at each ledger row; hover turns flag amber — deletion is the one control that warms.",
+      "html": "<button class=\"ds-btn-icon-ghost\" type=\"button\" aria-label=\"Remove stratum\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6h18\"/><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6\"/><path d=\"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/></svg></button>",
+      "css": ".ds-btn-icon-ghost { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: none; border-radius: var(--radius-md); background: transparent; color: var(--muted-foreground); cursor: pointer; transition: color 0.2s; } .ds-btn-icon-ghost:hover { color: var(--destructive); } .ds-btn-icon-ghost:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; } .ds-icon { width: 16px; height: 16px; }"
+    },
+    {
+      "name": "Engraved Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The universal label treatment: 10px uppercase, 0.14em tracking, weight 500, ink tint. Field labels, section titles, phase tags.",
+      "html": "<span class=\"ds-engraved\">Mean, t C/ha</span>",
+      "css": ".ds-engraved { font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); }"
+    },
+    {
+      "name": "Readout Window",
+      "kind": "card",
+      "refersTo": "readout",
+      "description": "Inset LCD well carrying a settling mono numeral and its engraved formula label. Inner lip shadow, hairline bezel.",
+      "html": "<div class=\"ds-readout\"><div class=\"ds-engraved\">Sample plots required — n</div><div class=\"ds-readout-value\">96</div></div>",
+      "css": ".ds-readout { background: var(--readout); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: inset 0 1px 2px oklch(0.2 0.02 150 / 8%), inset 0 0 0 1px oklch(1 0 0 / 55%); padding: 8px 12px; } .ds-readout .ds-engraved { font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); margin-bottom: 2px; } .ds-readout-value { font-family: \"Space Mono\", ui-monospace, SFMono-Regular, monospace; font-size: 14px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--foreground); }"
+    },
+    {
+      "name": "Settings Numeric Input",
+      "kind": "input",
+      "refersTo": "numeric-input",
+      "description": "Readout-style field for precision/confidence/plot size on the settings plate: LCD fill, inner lip, mono tabular numerals, engraved label above.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-engraved\" for=\"precision\">Precision (%)</label><input id=\"precision\" class=\"ds-input-readout\" type=\"text\" inputmode=\"decimal\" value=\"10\" /></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-engraved { font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); } .ds-input-readout { height: 36px; padding: 0 12px; background: var(--readout); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: inset 0 1px 2px oklch(0.2 0.02 150 / 8%), inset 0 0 0 1px oklch(1 0 0 / 55%); color: var(--foreground); caret-color: var(--primary); font-family: \"Space Mono\", ui-monospace, SFMono-Regular, monospace; font-size: 14px; font-variant-numeric: tabular-nums; } .ds-input-readout:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; } .ds-input-readout:disabled { opacity: 0.5; }"
+    },
+    {
+      "name": "Neyman Allocation Cell",
+      "kind": "custom",
+      "refersTo": "alloc-bar",
+      "description": "Signature readout: a spruce bar drawing to the row's exact share of max nᵢ inside a recessed well, rounded count engraved at the bar's end.",
+      "html": "<div class=\"ds-alloc\"><div class=\"ds-alloc-track\"><div class=\"ds-alloc-bar\" style=\"width: 68%\"></div></div><span class=\"ds-alloc-count\">12</span></div>",
+      "css": ".ds-alloc { display: flex; align-items: center; gap: 8px; width: 176px; } .ds-alloc-track { flex: 1; height: 8px; background: var(--bench); border-radius: 1px; box-shadow: inset 0 1px 2px oklch(0.2 0.02 150 / 10%); } .ds-alloc-bar { height: 8px; background: var(--primary); border-radius: 1px; transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-alloc-count { flex-shrink: 0; width: 24px; font-family: \"Space Mono\", ui-monospace, SFMono-Regular, monospace; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--foreground); }"
+    },
+    {
+      "name": "Ledger Add Row",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The \"next blank line\" affordance under the strata ledger: full-width dashed hairline, engraved label, hover turns spruce.",
+      "html": "<button class=\"ds-add-row\" type=\"button\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg><span>Add stratum</span></button>",
+      "css": ".ds-add-row { display: flex; align-items: center; gap: 8px; width: 100%; height: 36px; padding: 0 12px; margin-top: 12px; border: 1px dashed var(--input); background: transparent; color: var(--muted-foreground); cursor: pointer; transition: color 0.2s, border-color 0.2s; } .ds-add-row span { font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; } .ds-add-row:hover { border-color: var(--primary); color: var(--primary); } .ds-add-row:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; } .ds-icon { width: 14px; height: 14px; }"
+    },
+    {
+      "name": "Excluded Stratum Row",
+      "kind": "custom",
+      "refersTo": "readout",
+      "description": "Line-form state for invalid strata: dashed hairline rule under the row, 85% opacity, computed columns show an em-dash, allocation cell becomes an engraved amber EXCLUDED tag.",
+      "html": "<div class=\"ds-ledger-row ds-excluded\"><span class=\"ds-mono\">Stratum 3</span><span class=\"ds-mono ds-dash\">—</span><span class=\"ds-excluded-tag\">Excluded</span></div>",
+      "css": ".ds-ledger-row { display: flex; align-items: center; gap: 24px; padding: 8px 12px; font-family: \"Space Mono\", ui-monospace, SFMono-Regular, monospace; font-size: 14px; color: var(--foreground); } .ds-excluded { border-bottom: 1px dashed var(--input); opacity: 0.85; } .ds-mono { font-variant-numeric: tabular-nums; } .ds-dash { color: var(--muted-foreground); } .ds-excluded-tag { font-family: \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--destructive); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Survey Instrument",
+    "overview": "This calculator refuses the category default of neutral SaaS cards around a spreadsheet. It presents the entire calculation as one calibrated bench instrument: engraved tracked-uppercase labels, inset LCD readout windows, numerals locked to a registration grid. The interface itself argues the number is precise and auditable — every intermediate (weighted mean, E, weighted SD/variance, N, t) sits on display with its formula symbol.\n\nThe world is light, warm, and restrained. Depth is never simulated with drop shadows — plates sit on the bench separated by hairline rules, and the only shadows in the system are inward: recessed readout wells and the allocation track. State is carried in line form — weight, dash, double rule, strike — never in hue alone. Color is rationed: spruce appears on primary actions, the headline total, and sorted-column headers; flag amber appears only where something is excluded or needs checking.\n\nThe one signature motion is the settling readout: on every recompute, numeric values ease once into place (260 ms) and each Neyman allocation bar draws to its exact proportion. Values land; they never flicker.",
+    "keyCharacteristics": [
+      "Calibration-bench light theme: warm paper ground, ink-green foreground, one spruce accent, one flag amber.",
+      "Space Grotesk for every word; Space Mono for every numeral, always tabular-nums.",
+      "Engraved labels: 10px, weight 500, uppercase, 0.14em tracking, muted ink tint.",
+      "Inset LCD readout windows, never elevated cards.",
+      "Zero drop shadows; depth = inset wells + hairline rules.",
+      "Line-form state: dashed rules, double sum-rules, weight shifts — not hue alone.",
+      "Allocation bars whose length is the exact quantity; rounded count engraved at the bar's end.",
+      "Named phases in words (\"EXCLUDED\", \"finite population correction\"), never color-only status."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Spruce (#235338) and only spruce carries interactive meaning. Amber is a flag, not an accent — it never fills a primary action.", "section": "colors" },
+      { "name": "The Ink Tint Rule", "body": "Muted text is a tint of ink (#5f6659), never a neutral gray — the bench stays warm even in captions.", "section": "colors" },
+      { "name": "The Rationed Accent Rule", "body": "Spruce appears on ≤10% of any screen. Its rarity is what makes the headline total feel like the instrument's single lit display.", "section": "colors" },
+      { "name": "The Numbers Are Mono Rule", "body": "Every numeral on screen — inputs included — is Space Mono with tabular-nums. Nothing numeric is ever set in the sans.", "section": "typography" },
+      { "name": "The Engraving Rule", "body": "Labels are engraved: uppercase, 10px, weight 500, 0.14em tracking, ink tint. A label that looks like body text is a bug.", "section": "typography" },
+      { "name": "The One Bench Rule", "body": "Surfaces never float. If two regions need separation, use a hairline rule or an inset well — never a drop shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do set every numeral in Space Mono with tabular-nums, at any size.",
+      "Do engrave labels: uppercase, 10px, weight 500, 0.14em tracking, #5f6659.",
+      "Do put computed values in inset .readout wells with their engraved formula label.",
+      "Do carry state in line form — dashed rules, double rules, weight — and name the phase in words.",
+      "Do draw allocation bars to exact proportion and animate width at 260ms cubic-bezier(0.16, 1, 0.3, 1).",
+      "Do theme browser surfaces (selection, caret, focus ring, scrollbars) with the spruce/hairline tokens.",
+      "Do keep plates on the bench-value fill and separate them with 1px #d9d7cb hairlines."
+    ],
+    "donts": [
+      "Don't use drop shadows. Depth is inset wells and hairlines only.",
+      "Don't introduce any accent besides spruce and flag amber.",
+      "Don't signal state with hue alone — pair color with a line form or a named phase tag.",
+      "Don't set numerals in Space Grotesk, or use a proportional numeral anywhere in the ledger or readouts.",
+      "Don't give plates an elevated \"card\" tone — card fill equals bench ground (#f7f6f2).",
+      "Don't round corners below 1px on bars/rules or above the radius scale on plates; the form language is ruled lines with gentle corner radii."
+    ]
+  }
+}
