@@ -33,10 +33,10 @@ Desktop browser, used beside Excel and the original Winrock spreadsheet — user
 
 ## Brand Commitments
 
-The UI is stock shadcn-svelte with the "sera" style (Noto Sans text, Playfair
-Display headings) — deliberately off-the-shelf rather than bespoke, so the tool
-reads as a conventional, trustworthy professional utility. No logo or other
-brand material exists.
+The UI is stock shadcn-svelte with the "sera" style, carrying the Space
+Grotesk / Space Mono type pairing: Space Grotesk for all text and headings,
+Space Mono for all numerals — these fonts are binding user commitments. No
+logo or other brand material exists.
 
 ## Evidence on Hand
 

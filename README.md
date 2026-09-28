@@ -50,7 +50,7 @@ npx vercel --prod  # from the project root, linked via `npx vercel link`
 ## Stack
 
 Svelte 5 + Vite, shadcn-svelte (sera style, native-select), TanStack Table v9,
-Tailwind CSS v4, Noto Sans / Playfair Display via @fontsource-variable.
+Tailwind CSS v4, Space Grotesk / Space Mono via @fontsource.
 
 Design notes: `DESIGN.md`. Earlier design spec (pre-sera custom system, kept
 for history): `docs/superpowers/specs/2026-09-27-sample-plot-calculator-design.md`

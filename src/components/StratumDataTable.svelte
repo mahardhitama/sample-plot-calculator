@@ -187,10 +187,10 @@
 				<TableFooter>
 					<TableRow class="hover:bg-transparent">
 						<TableCell>Total</TableCell>
-						<TableCell class="text-right tabular-nums">{fmt(results.totalArea, 0)}</TableCell>
+						<TableCell class="text-right tabular-nums font-mono">{fmt(results.totalArea, 0)}</TableCell>
 						<TableCell colspan={5}></TableCell>
-						<TableCell class="text-right text-sm font-semibold tabular-nums">{results.method ? fmt(results.nRaw) : '—'}</TableCell>
-						<TableCell class="text-right text-sm font-semibold tabular-nums">{results.method ? fmt(results.totalAllocation, 0) : '—'}</TableCell>
+						<TableCell class="text-right text-sm font-semibold tabular-nums font-mono">{results.method ? fmt(results.nRaw) : '—'}</TableCell>
+						<TableCell class="text-right text-sm font-semibold tabular-nums font-mono">{results.method ? fmt(results.totalAllocation, 0) : '—'}</TableCell>
 						<TableCell></TableCell>
 					</TableRow>
 				</TableFooter>

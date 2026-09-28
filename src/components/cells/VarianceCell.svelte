@@ -44,7 +44,7 @@
 	<Input
 		type="text"
 		inputmode="decimal"
-		class="h-8 w-20 px-1 text-right text-sm tabular-nums"
+		class="h-8 w-20 px-1 text-right text-sm tabular-nums font-mono"
 		bind:value={text}
 		onfocus={() => (focused = true)}
 		onblur={() => (focused = false)}

@@ -1,6 +1,6 @@
 ---
 name: Sample Plot Calculator
-description: Stock shadcn-svelte "sera" UI — an editorial, typographic calculator for CDM A/R sample-plot design.
+description: shadcn-svelte "sera" components with Space Grotesk / Space Mono type — a typographic calculator for CDM A/R sample-plot design.
 colors:
   background: "oklch(1 0 0)"
   foreground: "oklch(0.147 0.004 49.3)"
@@ -20,83 +20,93 @@ colors:
   ring: "oklch(0.714 0.014 41.2)"
 typography:
   display:
-    fontFamily: "'Playfair Display Variable', serif"
-    usage: "Card titles, dialog titles — sera's editorial heading voice (uppercase, tracking-wide, semibold)."
-  body:
-    fontFamily: "'Noto Sans Variable', sans-serif"
-    usage: "All UI text and numerals; numerals keep tabular-nums for alignment."
+    fontFamily: "'Space Grotesk', ui-sans-serif, system-ui, sans-serif"
+    usage: "All UI text, labels, and headings (sera's uppercase tracked control styling rides on Space Grotesk)."
+  mono:
+    fontFamily: "'Space Mono', ui-monospace, SFMono-Regular, monospace"
+    usage: "Every numeral — inputs, readouts, computed cells — with tabular-nums."
 ---
 
 # Design: Sample Plot Calculator
 
 ## Overview
 
-The UI is **stock shadcn-svelte with the "sera" style** — no custom design system.
-Sera is the editorial, typographic preset from the shadcn-svelte registry
-(base color **taupe**, OKLCH tokens): warm near-white surfaces, restrained
-taupe-brown neutrals, Playfair Display headings, Noto Sans body, and controls
-that speak in uppercase tracked type — buttons, labels, table heads, and badges
-render `text-xs font-semibold uppercase tracking-wide` by default. Inputs are
-underline-style (`border-b` on transparent fill), not boxes.
+The UI is **shadcn-svelte with the "sera" style** — stock components and
+taupe OKLCH tokens — carrying a deliberate **Space Grotesk / Space Mono
+type pairing** on top. Sera supplies the visual system: warm near-white
+surfaces, restrained taupe-brown neutrals, and controls that speak in
+uppercase tracked type (buttons, labels, table heads, badges all render
+`text-xs font-semibold uppercase tracking-wide` by default); inputs are
+underline-style (`border-b` on transparent fill). The fonts are the one
+local override: **Space Grotesk for every word, Space Mono for every
+numeral**, so the tool reads like a survey instrument while staying
+byte-close to the registry everywhere else.
 
-The app layer adds nothing visual on top except Tailwind utility classes in
-components. All theme values, fonts, and primitives come from the registry
-through the CLI (see "Generator workflow"). If a screen doesn't look like
-sera, that's a bug.
+The app layer adds nothing visual beyond Tailwind utility classes. All
+theme values, components, and fonts are declared in `src/app.css` /
+`package.json` and flow from the shadcn-svelte setup (see "Generator
+workflow").
 
-**History:** an earlier custom system ("The Survey Instrument" — Space
-Grotesk/Space Mono, engraved labels, inset readout wells, hairline plates) was
-removed in September 2026 in favor of stock sera. Git history preserves it.
+**History:** an earlier custom system ("The Survey Instrument") was removed
+in September 2026 in favor of stock sera; sera's Noto Sans / Playfair
+Display fonts were then replaced with the original Space Grotesk / Space
+Mono pairing. Git history preserves both states.
 
 ## Where the design lives
 
-- `src/app.css` — the entire theme: five `@import` lines (tailwindcss,
-  tw-animate-css, `shadcn-svelte/tailwind.css`, and the two fontsource-variable
-  font packages), one `@theme` block, `:root`/`.dark` OKLCH variable sets, and a
-  two-rule `@layer base`. **Do not hand-edit the theme values** — regenerate
-  through the CLI (below) so the file stays byte-comparable with the registry.
+- `src/app.css` — the entire theme: `@import` lines (tailwindcss,
+  tw-animate-css, `shadcn-svelte/tailwind.css`, and the @fontsource Space
+  Grotesk / Space Mono packages), one `@theme` block (`--font-sans` and
+  `--font-heading` = Space Grotesk, `--font-mono` = Space Mono),
+  `:root`/`.dark` OKLCH variable sets from the sera registry, and a
+  two-rule `@layer base`. **Do not hand-edit the color/radius values** —
+  regenerate through the CLI (below) so those stay registry-faithful. The
+  five font lines (imports + three `--font-*` entries) are the documented
+  local exception; re-applying the preset reverts them.
 - `components.json` — `style: "sera"`, `tailwind.baseColor: "taupe"`,
   `iconLibrary: "lucide"`. The CLI reads this.
-- `src/lib/components/ui/` — generated shadcn-svelte primitives (badge, button,
-  card, input, label, native-select, switch, table, toggle, toggle-group).
-  Generated code: prefer wrapping over modifying; re-add rather than patch.
+- `src/lib/components/ui/` — generated shadcn-svelte primitives (badge,
+  button, card, input, label, native-select, switch, table, toggle,
+  toggle-group). Generated code: prefer wrapping over modifying; re-add
+  rather than patch.
 
 ## Generator workflow
 
 The theme and primitives come from `shadcn-svelte` (devDependency, v1.7.x):
 
 ```sh
-# re-apply the sera preset (theme + config + fonts); sera's preset code:
+# re-apply the sera preset (colors/config); sera's preset code:
 npx shadcn-svelte apply b4pl3te13o --yes
+# then restore the font lines in src/app.css and the @fontsource imports
+# (the preset would otherwise set Noto Sans / Playfair Display)
 
 # regenerate one or more primitives from the sera registry:
 npx shadcn-svelte add button card --yes --overwrite
 ```
 
-`apply` accepts the preset's short code (shown in the shadcn-svelte preset
-picker); named presets are chosen interactively. Registry source of truth:
-`https://shadcn-svelte.com/init?preset=b4pl3te13o` (theme vars) and
-`/registry/styles/sera/<item>.json` (components).
+Registry source of truth: `https://shadcn-svelte.com/init?preset=b4pl3te13o`
+(theme vars) and `/registry/styles/sera/<item>.json` (components).
 
 ## App-layer conventions
 
-These are the only rules the application components add on top of stock sera:
+The only rules the application components add on top of sera:
 
 - **Primitives un-styled.** Components pass layout utilities only (`w-24`,
   `text-right`, `flex` wrappers). Never override a primitive's color, radius,
-  or typography tokens — that is what "stock" means here.
-- **Numerals** render in Noto Sans with `tabular-nums` (stat readouts, numeric
-  inputs, allocation counts, aligned table cells). No monospace font anywhere.
+  or typography tokens.
+- **Numerals** — every number on screen (inputs, stat readouts, computed
+  cells, allocation counts, footer totals) renders `font-mono tabular-nums`
+  in Space Mono. Nothing numeric is set in the sans.
 - **State is stock shadcn vocabulary**: excluded strata are a muted row
   (`bg-muted/40 text-muted-foreground`) plus a `Badge variant="destructive"`;
   the alert banner is `border-destructive/50` with an uppercase destructive
   label; inline feedback is `text-primary` / `text-destructive` on
   `text-muted-foreground` captions.
 - **Composite patterns** follow shadcn defaults: results headline is
-  `text-4xl font-bold tabular-nums` over `text-sm text-muted-foreground`
-  captions; dialogs use the standard overlay (`bg-black/50`) + centered
-  `rounded-xl border bg-background p-6 shadow-lg` card; dashed drop-zones and
-  the add-row affordance are `rounded-md border border-dashed` with
+  `text-4xl font-bold` over `text-sm text-muted-foreground` captions; dialogs
+  use the standard overlay (`bg-black/50`) + centered
+  `rounded-xl border bg-background p-6 shadow-lg` card; dashed drop-zones
+  and the add-row affordance are `rounded-md border border-dashed` with
   `hover:border-primary hover:text-primary`.
 - **Motion** is the settling readout: numeric values tween once into place
   (260 ms, ease-out-expo) on recompute (`Readout.svelte`); the Neyman bar

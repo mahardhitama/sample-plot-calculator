@@ -131,8 +131,8 @@
 					{#each parsed.strata as stratum (stratum.name)}
 						<TableRow>
 							<TableCell>{stratum.name}</TableCell>
-							<TableCell class="text-right tabular-nums">{stratum.areaHa.toFixed(2)}</TableCell>
-							<TableCell class="text-right tabular-nums">{stratum.featureCount}</TableCell>
+							<TableCell class="text-right tabular-nums font-mono">{stratum.areaHa.toFixed(2)}</TableCell>
+							<TableCell class="text-right tabular-nums font-mono">{stratum.featureCount}</TableCell>
 						</TableRow>
 					{/each}
 				</TableBody>

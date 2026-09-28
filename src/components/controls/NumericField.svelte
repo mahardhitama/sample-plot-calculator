@@ -34,7 +34,7 @@
 		{id}
 		type="text"
 		inputmode="decimal"
-		class="tabular-nums"
+		class="font-mono tabular-nums"
 		bind:value={text}
 		{disabled}
 		onfocus={() => (focused = true)}

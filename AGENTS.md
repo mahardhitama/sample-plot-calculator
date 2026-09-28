@@ -26,7 +26,7 @@ Live at https://sample-plot-calculator.vercel.app (static Vite app on Vercel).
 - shadcn-svelte ("sera" style, configured in `components.json`); stock UI primitives live in `src/lib/components/ui/` and are generated code — edit them rarely and prefer wrapping over modifying
 - TanStack Table v9 (`@tanstack/svelte-table`) for the sortable strata ledger
 - `@lucide/svelte` for icons; `cn` for class merging (`$lib/utils.js`)
-- Fonts: Noto Sans Variable (all text) and Playfair Display Variable (headings), pulled in by the sera preset via `@fontsource-variable/*`; numerals keep `tabular-nums`
+- Fonts: Space Grotesk (all text and headings) and Space Mono (all numerals, `font-mono tabular-nums`) via `@fontsource/space-grotesk` / `@fontsource/space-mono` — a binding product commitment on top of the sera style
 
 ## Build and test commands
 

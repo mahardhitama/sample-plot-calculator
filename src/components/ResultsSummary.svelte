@@ -53,7 +53,7 @@
 				<Readout
 					value={results.nRounded}
 					format={(v) => fmt(v, 0)}
-					class="text-4xl font-bold tabular-nums text-primary"
+					class="text-4xl font-bold tabular-nums font-mono text-primary"
 				/>
 			</div>
 			<div>
@@ -61,7 +61,7 @@
 				<Readout
 					value={results.method ? results.totalPlots : null}
 					format={(v) => fmt(v, 0)}
-					class="text-4xl font-bold tabular-nums"
+					class="text-4xl font-bold tabular-nums font-mono"
 				/>
 			</div>
 			<div>
@@ -69,7 +69,7 @@
 				<Readout
 					value={results.method ? results.totalAllocation : null}
 					format={(v) => fmt(v, 0)}
-					class="text-4xl font-bold tabular-nums"
+					class="text-4xl font-bold tabular-nums font-mono"
 				/>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 			{#each stats as stat (stat.label)}
 				<div>
 					<dt class="text-xs text-muted-foreground">{stat.label}</dt>
-					<dd class="text-sm font-medium tabular-nums">
+					<dd class="text-sm font-medium tabular-nums font-mono">
 						<Readout value={stat.value} format={stat.format} />
 					</dd>
 				</div>
