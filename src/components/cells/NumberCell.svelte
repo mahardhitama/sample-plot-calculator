@@ -19,7 +19,7 @@
 <Input
 	type="text"
 	inputmode="decimal"
-	class="h-8 w-24 px-1 text-sm tabular-nums"
+	class="h-8 w-24 px-1 text-right text-sm tabular-nums"
 	bind:value={text}
 	onfocus={() => (focused = true)}
 	onblur={() => (focused = false)}
