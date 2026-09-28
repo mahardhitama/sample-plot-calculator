@@ -62,12 +62,11 @@
 </script>
 
 <div class="min-h-screen">
-	<!-- instrument bezel -->
 	<header class="border-b">
 		<div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4">
 			<div class="flex items-center gap-3">
-				<div class="readout flex size-9 items-center justify-center">
-					<svg viewBox="0 0 24 24" fill="none" class="size-5 text-primary" aria-hidden>
+				<div class="flex size-9 items-center justify-center rounded-md bg-primary/10 text-primary">
+					<svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden>
 						<rect x="1.75" y="1.75" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.5" />
 						<rect x="13.75" y="1.75" width="8.5" height="8.5" fill="currentColor" />
 						<rect x="1.75" y="13.75" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.5" />
@@ -75,12 +74,12 @@
 					</svg>
 				</div>
 				<div>
-					<h1 class="text-base font-bold tracking-[-0.02em]">Sample Plot Calculator</h1>
+					<h1 class="font-heading text-xl font-semibold">Sample Plot Calculator</h1>
 					<a
 						href="https://cdm.unfccc.int/methodologies/ARmethodologies/tools/ar-am-tool-03-v2.1.0.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="engraved inline-flex items-center gap-1 transition-colors hover:text-foreground hover:underline"
+						class="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground hover:underline"
 					>
 						CDM A/R tool v2.1.0 · stratified carbon stock estimation
 						<ArrowUpRightIcon class="size-3 shrink-0" aria-hidden />
@@ -112,8 +111,8 @@
 
 	<main class="mx-auto max-w-7xl space-y-6 px-6 py-6">
 		{#if importError || issues.length > 0}
-			<div class="plate flex flex-col gap-2 border-destructive/40 bg-card px-4 py-3" role="alert">
-				<span class="engraved text-destructive">Check</span>
+			<div class="flex flex-col gap-2 rounded-lg border border-destructive/50 bg-card p-4" role="alert">
+				<span class="text-xs font-semibold uppercase tracking-wider text-destructive">Check</span>
 				{#if importError}
 					<p class="text-sm">{importError}</p>
 				{/if}
@@ -134,10 +133,10 @@
 		<ResultsSummary {results} />
 
 		{#if stratumIssues.length > 0}
-			<div class="engraved">
+			<div class="text-xs text-muted-foreground">
 				Excluded from calculation —
 				{#each stratumIssues as stratum (stratum.id)}
-					<span class="font-mono text-destructive normal-case tracking-normal">{stratum.name}</span>
+					<span class="font-medium text-destructive">{stratum.name}</span>
 					({stratum.issues.join('; ')}){#if stratum !== stratumIssues[stratumIssues.length - 1]},{/if}
 				{/each}
 			</div>

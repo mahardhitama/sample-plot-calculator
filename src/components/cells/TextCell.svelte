@@ -17,7 +17,7 @@
 </script>
 
 <Input
-	class="readout h-8 w-36 text-sm transition-colors focus:border-primary"
+	class="h-8 w-36 px-1 text-sm"
 	bind:value={text}
 	onfocus={() => (focused = true)}
 	onblur={() => (focused = false)}
