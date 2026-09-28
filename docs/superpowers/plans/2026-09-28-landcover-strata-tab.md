@@ -512,16 +512,6 @@ function ringAreaM2(ring) {
 	return sum / 2
 }
 
-function polygonAreaM2(rings, project) {
-	let area = 0
-	rings.forEach((ring, i) => {
-		const projected = ring.map(([lon, lat]) => project([lon, lat]))
-		const value = Math.abs(ringAreaM2(projected))
-		area += i === 0 ? value : -value
-	})
-	return area
-}
-
 /**
  * Compute per-stratum areas (ha) from parsed GeoJSON.
  * @param {{ok: true, strata: Array<{name, featureCount, features}>}} parsed
@@ -541,10 +531,7 @@ export function computeStrataAreas(parsed) {
 		const polygons = s.features.flatMap((feature) =>
 			feature.geometry.type === 'Polygon' ? [feature.geometry.coordinates] : feature.geometry.coordinates
 		)
-		const areaM2 = polygons.reduce(
-			(sum, rings) => sum + rings.reduce((ringSum, ring) => ringSum + 0, 0) + polygonFeatureAreaM2(rings, project),
-			0
-		)
+		const areaM2 = polygons.reduce((sum, rings) => sum + polygonFeatureAreaM2(rings, project), 0)
 		const areaHa = areaM2 / 10000
 		if (!(areaHa > 0)) warnings.push(`Stratum "${s.name}": zero-area geometry.`)
 		return { name: s.name, featureCount: s.featureCount, areaHa, polygons }
@@ -561,7 +548,7 @@ function polygonFeatureAreaM2(rings, project) {
 }
 ```
 
-Note: if you prefer a single helper, inline `polygonFeatureAreaM2` and delete the unused `polygonAreaM2` — keep exactly one of them.
+Note: `polygonFeatureAreaM2` must be defined (it is, below) and there is no other area helper in this file — keep exactly one.
 
 - [ ] **Step 5: Run tests to verify they pass**
 
@@ -733,6 +720,8 @@ function scheduleSilentRefresh() {
 	setTimeout(async () => {
 		try {
 			await requestToken('')
+			// Force the EE client to re-initialize with the fresh token.
+			initPromise = null
 		} catch {
 			accessToken = null
 			authLostHandler?.()
