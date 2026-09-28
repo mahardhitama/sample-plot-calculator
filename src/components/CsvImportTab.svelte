@@ -13,7 +13,14 @@
 	async function onFile(file) {
 		if (!file) return
 		importedCount = null
-		const result = parseStrataCsv(await file.text())
+		let text
+		try {
+			text = await file.text()
+		} catch {
+			errors = ['Could not read the selected file.']
+			return
+		}
+		const result = parseStrataCsv(text)
 		if (!result.ok) {
 			errors = result.errors
 			return
@@ -66,16 +73,18 @@
 
 {#if errors}
 	<!-- error dialog -->
-	<div
-		class="fixed inset-0 z-50 flex items-center justify-center bg-background/70"
-		onclick={() => (errors = null)}
-	>
+	<div class="fixed inset-0 z-50 flex items-center justify-center">
+		<button
+			type="button"
+			aria-label="Dismiss import error dialog"
+			class="absolute inset-0 bg-background/70"
+			onclick={() => (errors = null)}
+		></button>
 		<div
 			role="dialog"
 			aria-modal="true"
 			aria-label="CSV import errors"
-			class="plate mx-4 max-h-[70vh] w-full max-w-lg gap-3 bg-card p-4"
-			onclick={(event) => event.stopPropagation()}
+			class="plate relative mx-4 max-h-[70vh] w-full max-w-lg gap-3 bg-card p-4"
 		>
 			<span class="engraved text-destructive">Check — CSV not imported</span>
 			<ul class="max-h-[45vh] overflow-y-auto py-1 font-mono text-sm tabular-nums">

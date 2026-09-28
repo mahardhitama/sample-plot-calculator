@@ -36,6 +36,13 @@ Forest,-10,50,sd,12.5,excluded later by calculator`)
 		expect(result.strata[0].mean).toBe(60)
 	})
 
+	it('unescapes doubled quotes inside quoted fields', () => {
+		const result = parseStrataCsv(`strata,area,mean_c_stock,variability,variability_value
+"Say ""Hi""",100,60,CV,15`)
+		expect(result.ok).toBe(true)
+		expect(result.strata[0].name).toBe('Say "Hi"')
+	})
+
 	it('rejects an empty file', () => {
 		const result = parseStrataCsv('')
 		expect(result).toEqual({ ok: false, errors: ['The file is empty.'] })
