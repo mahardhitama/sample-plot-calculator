@@ -28,12 +28,15 @@ Desktop browser, used beside Excel and the original Winrock spreadsheet — user
 - Confidence presets 80/90/95/98/99% matching the Excel; "custom" uses a fixed t without iteration.
 - Per-stratum variability entered as CV% or SD; both shown as computed columns.
 - Strata CRUD with validation; invalid strata are excluded from calculation and flagged.
-- Stack: Svelte 5 + Vite SPA, Tailwind v4, shadcn-svelte stock components, TanStack Table v9. Fonts: Space Grotesk (text) and Space Mono (numbers) are binding user commitments.
+- Stack: Svelte 5 + Vite SPA, Tailwind v4, shadcn-svelte stock components (sera style), TanStack Table v9.
 - Terminology follows the CDM tool: strata, A/A_i, AP, N/N_i, E, n/n_i, Neyman allocation.
 
 ## Brand Commitments
 
-Fonts are the only binding visual constraints: Space Grotesk for text, Space Mono for numbers. No logo or other brand material exists.
+The UI is stock shadcn-svelte with the "sera" style, carrying the Space
+Grotesk / Space Mono type pairing: Space Grotesk for all text and headings,
+Space Mono for all numerals — these fonts are binding user commitments. No
+logo or other brand material exists.
 
 ## Evidence on Hand
 

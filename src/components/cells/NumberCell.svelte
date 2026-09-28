@@ -1,7 +1,7 @@
 <script>
 	import { Input } from '$lib/components/ui/input/index.js'
 
-	let { stratum = $bindable(), field } = $props()
+	let { stratum, field, onCommit } = $props()
 
 	let focused = $state(false)
 	let text = $state('')
@@ -12,14 +12,14 @@
 
 	function oninput(event) {
 		text = event.currentTarget.value
-		stratum[field] = text === '' ? null : Number(text)
+		onCommit(text === '' ? null : Number(text))
 	}
 </script>
 
 <Input
 	type="text"
 	inputmode="decimal"
-	class="readout h-8 w-24 font-mono text-sm tabular-nums transition-colors focus:border-primary"
+	class="h-8 w-24 px-1 text-right text-sm tabular-nums font-mono"
 	bind:value={text}
 	onfocus={() => (focused = true)}
 	onblur={() => (focused = false)}

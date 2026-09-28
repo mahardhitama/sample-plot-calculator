@@ -1,8 +1,7 @@
 <script>
 	/**
-	 * Instrument readout: numeric values settle once into place on recompute
-	 * (raise: gravity-rain — values land, they never flicker).
-	 * Non-numeric values render instantly.
+	 * Numeric display that tweens to the new value on recompute;
+	 * non-numeric values render instantly.
 	 */
 	let { value, format = (v) => String(v), class: className = '' } = $props()
 

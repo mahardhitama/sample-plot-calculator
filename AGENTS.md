@@ -23,10 +23,10 @@ Live at https://sample-plot-calculator.vercel.app (static Vite app on Vercel).
 - Svelte 5 (runes: `$state`, `$derived`, `$effect`, `$props`, `$bindable`) — no TypeScript, plain JS everywhere
 - Vite 8 (`vite.config.js`, also drives Vitest) with the `@sveltejs/vite-plugin-svelte` and `@tailwindcss/vite` plugins
 - Tailwind CSS v4 via `src/app.css` (`@import "tailwindcss"`, `@theme` token block, CSS-first config — no `tailwind.config.js`)
-- shadcn-svelte ("nova" style, configured in `components.json`); stock UI primitives live in `src/lib/components/ui/` and are generated code — edit them rarely and prefer wrapping over modifying
+- shadcn-svelte ("sera" style, configured in `components.json`); stock UI primitives live in `src/lib/components/ui/` and are generated code — edit them rarely and prefer wrapping over modifying
 - TanStack Table v9 (`@tanstack/svelte-table`) for the sortable strata ledger
 - `@lucide/svelte` for icons; `cn` for class merging (`$lib/utils.js`)
-- Fonts: Space Grotesk (all text) and Space Mono (all numerals, `tabular-nums`) — a binding product commitment
+- Fonts: Space Grotesk (all text and headings) and Space Mono (all numerals, `font-mono tabular-nums`) via `@fontsource/space-grotesk` / `@fontsource/space-mono` — a binding product commitment on top of the sera style
 
 ## Build and test commands
 
@@ -158,22 +158,25 @@ text in `docs/sources/ar-am-tool-03-v2.1.0.md` or by comparing against
 
 ## Design conventions
 
-`DESIGN.md` is the authoritative design system ("The Survey Instrument": a
-calibration-bench aesthetic). Hard rules that code reviews should enforce:
+The UI is **stock shadcn-svelte "sera"** — there is no custom design system,
+and that is the rule. `DESIGN.md` documents the full rationale; the contract
+code reviews should enforce:
 
-- No drop shadows anywhere; depth is inset wells (`.readout`) and 1px
-  hairline rules (`border` token).
-- Only two accents: spruce `--primary: #235338` and flag amber
-  `--destructive: #b45309`. Amber signals "check this", never decoration.
-- Every numeral in Space Mono with `tabular-nums`; labels are engraved
-  (uppercase, 10px, 0.14em tracking, `--muted-foreground`).
-- Plates use the bench-ground fill (`--card` equals `--background`); they
-  separate by hairline, not elevation.
-- State is never hue alone — pair color with a line form (dashed rule,
-  double sum-rule) or a named phase tag in words ("EXCLUDED").
+- Theme values in `src/app.css` (`:root`/`.dark` OKLCH vars, `@theme` block)
+  come from the shadcn-svelte registry. Regenerate, don't hand-edit:
+  `npx shadcn-svelte apply b4pl3te13o --yes` (sera's preset code) for the
+  theme, `npx shadcn-svelte add <item> --yes --overwrite` for primitives.
+- Application components pass layout utilities only and never override a
+  primitive's color/radius/typography tokens. No custom CSS component classes
+  — if it isn't a utility class, it doesn't belong in `src/`.
+- Numerals stay aligned with `tabular-nums` (inputs, readouts, aligned table
+  cells); no monospace font anywhere.
+- State uses stock shadcn vocabulary: `Badge variant="destructive"` for
+  excluded strata, `bg-muted/40` muted rows, `text-destructive`/`text-primary`
+  inline feedback, uppercase labels via the `Label` primitive.
 
-A `.dark` token set exists in `src/app.css` but is unexercised; do not design
-against it.
+A `.dark` token set ships in `src/app.css` but the app has no theme switcher;
+do not design against it.
 
 ## Security and data considerations
 

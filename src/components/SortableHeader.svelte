@@ -12,8 +12,8 @@
 <button
 	type="button"
 	class={cn(
-		'engraved inline-flex items-center gap-1 transition-colors hover:text-primary',
-		sorted && 'text-primary',
+		'inline-flex items-center gap-1 transition-colors hover:text-foreground',
+		sorted && 'text-foreground',
 		className
 	)}
 	onclick={header.column.getToggleSortingHandler()}

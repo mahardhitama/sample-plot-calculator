@@ -1,5 +1,6 @@
 <script>
 	import { Input } from '$lib/components/ui/input/index.js'
+	import { Label } from '$lib/components/ui/label/index.js'
 
 	let { id, label, value = $bindable(), scale = 1, disabled = false } = $props()
 
@@ -28,12 +29,12 @@
 </script>
 
 <div class="flex flex-col gap-1.5">
-	<label for={id} class="engraved">{label}</label>
+	<Label for={id}>{label}</Label>
 	<Input
 		{id}
 		type="text"
 		inputmode="decimal"
-		class="readout h-9 font-mono text-sm tabular-nums disabled:opacity-50"
+		class="font-mono tabular-nums"
 		bind:value={text}
 		{disabled}
 		onfocus={() => (focused = true)}

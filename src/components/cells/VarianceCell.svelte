@@ -2,7 +2,7 @@
 	import { Input } from '$lib/components/ui/input/index.js'
 	import { Switch } from '$lib/components/ui/switch/index.js'
 
-	let { stratum = $bindable() } = $props()
+	let { stratum, onValueChange, onModeChange } = $props()
 
 	let focused = $state(false)
 	let text = $state(String(stratum.varianceInput?.value ?? ''))
@@ -13,13 +13,13 @@
 
 	function oninput(event) {
 		text = event.currentTarget.value
-		stratum.varianceInput.value = text === '' ? null : Number(text)
+		onValueChange(text === '' ? null : Number(text))
 	}
 
-	let mode = $state(stratum.varianceInput?.mode ?? 'cv')
+	let mode = $state(stratum.varianceInput?.mode ?? 'sd')
 
 	$effect(() => {
-		stratum.varianceInput.mode = mode
+		onModeChange(mode)
 	})
 
 	$effect(() => {
@@ -29,18 +29,22 @@
 </script>
 
 <div class="flex items-center gap-1.5">
-	<span class="engraved {mode === 'cv' ? '' : 'text-muted-foreground/60'}">CV%</span>
+	<span class="text-xs uppercase tracking-wide {mode === 'cv' ? 'font-medium text-foreground' : 'text-muted-foreground'}"
+		>CV%</span
+	>
 	<Switch
 		size="sm"
 		checked={mode === 'sd'}
 		onCheckedChange={(checked) => (mode = checked ? 'sd' : 'cv')}
 		aria-label="Toggle between CV% and SD input"
 	/>
-	<span class="engraved {mode === 'sd' ? '' : 'text-muted-foreground/60'}">SD</span>
+	<span class="text-xs uppercase tracking-wide {mode === 'sd' ? 'font-medium text-foreground' : 'text-muted-foreground'}"
+		>SD</span
+	>
 	<Input
 		type="text"
 		inputmode="decimal"
-		class="readout h-8 w-20 font-mono text-sm tabular-nums transition-colors focus:border-primary"
+		class="h-8 w-20 px-1 text-right text-sm tabular-nums font-mono"
 		bind:value={text}
 		onfocus={() => (focused = true)}
 		onblur={() => (focused = false)}

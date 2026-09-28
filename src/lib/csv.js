@@ -60,12 +60,12 @@ function parseNumberCell(raw, label, row, errors) {
 	return value
 }
 
-/** Normalize the variability mode; pushes a row-tagged error and defaults to 'cv'. */
+/** Normalize the variability mode; pushes a row-tagged error and defaults to 'sd'. */
 function parseModeCell(raw, row, errors) {
 	const text = (raw ?? '').trim().toLowerCase()
 	if (text === 'cv' || text === 'sd') return text
 	errors.push(`Row ${row}: variability "${(raw ?? '').trim()}" must be "CV" or "SD".`)
-	return 'cv'
+	return 'sd'
 }
 
 /**

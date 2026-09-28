@@ -2,6 +2,7 @@
 	import UploadIcon from '@lucide/svelte/icons/upload'
 	import { Button } from '$lib/components/ui/button/index.js'
 	import * as Card from '$lib/components/ui/card/index.js'
+	import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '$lib/components/ui/table/index.js'
 	import { parseLandCoverGeoJson } from '$lib/geojson.js'
 	import { computeStrataAreas } from '$lib/utm-area.js'
 	import { MIN_BIOMASS_PIXELS } from '$lib/gee-config.js'
@@ -96,48 +97,48 @@
 	}
 </script>
 
-<Card.Root class="plate gap-4 py-4">
-	<Card.Header class="px-4">
-		<Card.Title class="engraved">Derive strata from land cover</Card.Title>
+<Card.Root>
+	<Card.Header>
+		<Card.Title>Derive strata from land cover</Card.Title>
 		<Card.Description>
 			Upload a GeoJSON whose features carry a STRATA property. Areas are computed in the local UTM
 			zone; biomass statistics use CTrees Global AGB 100 m (latest year) via Earth Engine with your
 			Google account. Replaces all strata.
 		</Card.Description>
 	</Card.Header>
-	<Card.Content class="space-y-3 px-4">
+	<Card.Content class="space-y-3">
 		<button
 			type="button"
-			class="flex h-24 w-full flex-col items-center justify-center gap-2 border border-dashed border-input text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+			class="flex h-24 w-full flex-col items-center justify-center gap-2 rounded-md border border-dashed text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
 			onclick={() => fileInput.click()}
 			ondragover={(event) => event.preventDefault()}
 			{onDrop}
 		>
 			<UploadIcon class="size-4" />
-			<span class="engraved">Drop a .geojson here or click to browse</span>
+			Drop a .geojson here or click to browse
 		</button>
 
 		{#if parsed}
-			<table class="w-full font-mono text-sm tabular-nums">
-				<thead>
-					<tr class="engraved border-b text-left">
-						<th class="py-1 pr-4 font-normal">Stratum</th>
-						<th class="py-1 pr-4 text-right font-normal">Area, ha</th>
-						<th class="py-1 text-right font-normal">Features</th>
-					</tr>
-				</thead>
-				<tbody>
+			<Table>
+				<TableHeader>
+					<TableRow>
+						<TableHead>Stratum</TableHead>
+						<TableHead class="text-right">Area, ha</TableHead>
+						<TableHead class="text-right">Features</TableHead>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
 					{#each parsed.strata as stratum (stratum.name)}
-						<tr class="border-b border-border/50">
-							<td class="py-1 pr-4">{stratum.name}</td>
-							<td class="py-1 pr-4 text-right">{stratum.areaHa.toFixed(2)}</td>
-							<td class="py-1 text-right">{stratum.featureCount}</td>
-						</tr>
+						<TableRow>
+							<TableCell>{stratum.name}</TableCell>
+							<TableCell class="text-right tabular-nums font-mono">{stratum.areaHa.toFixed(2)}</TableCell>
+							<TableCell class="text-right tabular-nums font-mono">{stratum.featureCount}</TableCell>
+						</TableRow>
 					{/each}
-				</tbody>
-			</table>
+				</TableBody>
+			</Table>
 			{#each parsed.warnings as warning (warning)}
-				<p class="engraved text-destructive">{warning}</p>
+				<p class="text-sm text-destructive">{warning}</p>
 			{/each}
 		{/if}
 
@@ -148,16 +149,16 @@
 				</Button>
 			{:else}
 				<Button variant="outline" size="sm" onclick={onSignIn}>Sign in with Google</Button>
-				<span class="engraved">Required to run Earth Engine zonal statistics</span>
+				<span class="text-xs text-muted-foreground">Required to run Earth Engine zonal statistics</span>
 			{/if}
 		</div>
 
 		{#if phase === 'done'}
-			<p class="engraved text-primary">
+			<p class="text-sm font-medium text-primary">
 				{project.strata.length} strata imported from CTrees AGB — switch to Manual inputs to review
 				(excluded strata have too few biomass pixels)
 			</p>
-			<p class="engraved">
+			<p class="text-xs text-muted-foreground">
 				Source: CTrees Global Aboveground Biomass 100 m, CC-BY 4.0, non-peer-reviewed preprint.
 				Values are t C/ha (AGB × 0.5); SD is a remote-sensing proxy, not field-measured.
 			</p>
@@ -178,18 +179,23 @@
 		<button
 			type="button"
 			aria-label="Dismiss import error dialog"
-			class="absolute inset-0 bg-background/70"
+			class="absolute inset-0 bg-black/50"
 			onclick={() => (errors = null)}
 		></button>
-		<div role="dialog" aria-modal="true" aria-label="Land cover import errors" class="plate relative mx-4 max-h-[70vh] w-full max-w-lg gap-3 bg-card p-4">
-			<span class="engraved text-destructive">Check — not imported</span>
-			<ul class="max-h-[45vh] overflow-y-auto py-1 font-mono text-sm tabular-nums">
+		<div
+			role="dialog"
+			aria-modal="true"
+			aria-label="Land cover import errors"
+			class="relative mx-4 grid max-h-[70vh] w-full max-w-lg gap-4 overflow-y-auto rounded-xl border bg-background p-6 shadow-lg"
+		>
+			<h2 class="text-base font-semibold text-destructive">Check — not imported</h2>
+			<ul class="text-sm">
 				{#each errors as error (error)}
 					<li>{error}</li>
 				{/each}
 			</ul>
 			<div class="flex justify-end">
-				<Button variant="outline" size="sm" onclick={() => (errors = null)}>Close</Button>
+				<Button variant="outline" onclick={() => (errors = null)}>Close</Button>
 			</div>
 		</div>
 	</div>
