@@ -47,8 +47,8 @@
 		<Card.Description>{phase}</Card.Description>
 	</Card.Header>
 	<Card.Content class="space-y-6">
-		<div class="flex flex-wrap items-end gap-x-8 gap-y-4">
-			<div class="flex-1">
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-x-8">
+			<div>
 				<div class="mb-1 text-sm text-muted-foreground">Sample plots required — n</div>
 				<Readout
 					value={results.nRounded}
@@ -56,7 +56,7 @@
 					class="text-4xl font-bold tabular-nums text-primary"
 				/>
 			</div>
-			<div class="flex-1">
+			<div>
 				<div class="mb-1 text-sm text-muted-foreground">After per-stratum round-up</div>
 				<Readout
 					value={results.method ? results.totalPlots : null}
@@ -64,7 +64,7 @@
 					class="text-4xl font-bold tabular-nums"
 				/>
 			</div>
-			<div class="flex-1">
+			<div>
 				<div class="mb-1 text-sm text-muted-foreground">Total allocation incl. backups</div>
 				<Readout
 					value={results.method ? results.totalAllocation : null}
